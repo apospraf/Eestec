@@ -9,8 +9,19 @@
     tools:context="com.ateam.eestec.MainActivity" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+    
+       <TextView  
+     android:id="@+id/textViewTime"  
+     android:layout_width="wrap_content"  
+     android:layout_height="wrap_content"  
+     android:layout_above="@+id/btnStop"  
+     android:layout_centerHorizontal="true"  
+     android:layout_marginBottom="17dp"  
+     android:textSize="25sp" />  
+    
 
 </RelativeLayout>
