@@ -21,43 +21,39 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 
 public class MainActivity extends Activity {
+	Button btnStart;
 	TextView textViewTime;
-	int hours=00;
+	
+	int hours=5;
 	int minutes=04;
 	int seconds=00;
 	String div=":";
-	
+	int Hours=10;
+	int Minutes=50;
 	String total;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		((Button) findViewById(R.id.button1)).setOnClickListener(new OnClickListener() {
+		btnStart = (Button)findViewById(R.id.btn_start);
+		textViewTime = (TextView)findViewById(R.id.textViewTime);
+		textViewTime.setText((Hours-hours)+div+(Minutes-minutes)+div+seconds);
+		final CounterClass timer = new CounterClass((Hours-hours)*3600000+(Minutes-minutes)*60000+seconds*1000,1000);  
+		btnStart.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-		        Intent intent = new Intent(getApplicationContext(),Map.class);
-		        startActivity(intent);
-				
+				// TODO Auto-generated method stub
+				timer.start();
 			}
-		});;
-		
-	}
+		});
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		
-		textViewTime = (TextView)findViewById(R.id.textViewTime);
-		textViewTime.setText(hours+div+minutes+div+seconds);
-		final CounterClass timer = new CounterClass(180000,1000);  
-
-		
-		
-		return true;
 	}
 	
 	
