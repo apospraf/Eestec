@@ -1,9 +1,10 @@
 package com.ateam.eestec;  
-import java.util.concurrent.TimeUnit;  
 
+import java.util.concurrent.TimeUnit;  
 import android.annotation.SuppressLint;  
 import android.annotation.TargetApi;  
 import android.app.Activity;  
+import android.content.Intent;
 import android.os.Build;  
 import android.os.Bundle;  
 import android.os.CountDownTimer;  
@@ -32,6 +33,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		((Button) findViewById(R.id.button1)).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+		        Intent intent = new Intent(getApplicationContext(),Map.class);
+		        startActivity(intent);
+				
+			}
+		});;
+		
 	}
 
 	@Override
@@ -83,4 +95,6 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+
 }

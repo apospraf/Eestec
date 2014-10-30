@@ -21,7 +21,16 @@
      android:layout_above="@+id/btnStop"  
      android:layout_centerHorizontal="true"  
      android:layout_marginBottom="17dp"  
-     android:textSize="25sp" />  
-    
+     android:textSize="25sp" />
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="31dp"
+           android:text="@string/Map"
+           android:onClick="map" />
 
 </RelativeLayout>
