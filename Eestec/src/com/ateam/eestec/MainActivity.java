@@ -1,19 +1,15 @@
-package com.ateam.eestec;  
+package com.ateam.eestec;
+import java.util.concurrent.TimeUnit;
 
-import java.util.concurrent.TimeUnit;  
-import android.annotation.SuppressLint;  
-import android.annotation.TargetApi;  
-import android.app.Activity;  
-import android.content.Intent;
-import android.os.Build;  
-import android.os.Bundle;  
-import android.os.CountDownTimer;  
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;  
-import android.view.View.OnClickListener;  
-import android.widget.Button;  
-import android.widget.TextView; 
+import android.widget.TextView;
 
 
 
@@ -22,41 +18,31 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	TextView textViewTime;
-	int hours=00;
+	
+	int hours=5;
 	int minutes=04;
 	int seconds=00;
 	String div=":";
-	
+	int Hours=10;
+	int Minutes=50;
 	String total;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		((Button) findViewById(R.id.button1)).setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-		        Intent intent = new Intent(getApplicationContext(),Map.class);
-		        startActivity(intent);
-				
-			}
-		});;
-		
-	}
+		textViewTime = (TextView)findViewById(R.id.textViewTime);
+		textViewTime.setText((Hours-hours)+div+(Minutes-minutes)+div+seconds);
+		final CounterClass timer = new CounterClass((Hours-hours)*3600000+(Minutes-minutes)*60000+seconds*1000,1000);  
+		timer.start();
+		}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		
-		textViewTime = (TextView)findViewById(R.id.textViewTime);
-		textViewTime.setText(hours+div+minutes+div+seconds);
-		final CounterClass timer = new CounterClass(180000,1000);  
-
-		
-		
+			
 		return true;
 	}
 	
@@ -95,6 +81,4 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-
 }
