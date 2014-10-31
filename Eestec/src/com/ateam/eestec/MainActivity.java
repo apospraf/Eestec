@@ -1,19 +1,15 @@
-package com.ateam.eestec;  
+package com.ateam.eestec;
+import java.util.concurrent.TimeUnit;
 
-import java.util.concurrent.TimeUnit;  
-import android.annotation.SuppressLint;  
-import android.annotation.TargetApi;  
-import android.app.Activity;  
-import android.content.Intent;
-import android.os.Build;  
-import android.os.Bundle;  
-import android.os.CountDownTimer;  
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;  
-import android.view.View.OnClickListener;  
-import android.widget.Button;  
-import android.widget.TextView; 
+import android.widget.TextView;
 
 
 
@@ -21,7 +17,6 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 
 public class MainActivity extends Activity {
-	Button btnStart;
 	TextView textViewTime;
 	
 	int hours=5;
@@ -36,24 +31,19 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		btnStart = (Button)findViewById(R.id.btn_start);
 		textViewTime = (TextView)findViewById(R.id.textViewTime);
 		textViewTime.setText((Hours-hours)+div+(Minutes-minutes)+div+seconds);
 		final CounterClass timer = new CounterClass((Hours-hours)*3600000+(Minutes-minutes)*60000+seconds*1000,1000);  
-		btnStart.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				timer.start();
-			}
-		});
+		timer.start();
+		}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		
+			
+		return true;
 	}
 	
 	
@@ -91,6 +81,4 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-
 }
