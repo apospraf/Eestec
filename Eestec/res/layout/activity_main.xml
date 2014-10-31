@@ -8,12 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ateam.eestec.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-    
        <TextView  
      android:id="@+id/textViewTime"  
      android:layout_width="wrap_content"  
@@ -42,13 +36,5 @@
      android:layout_marginBottom="17dp"  
      android:textSize="25sp" />
 
-       <Button
-           android:id="@+id/btn_start"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/textViewTime"
-           android:layout_centerHorizontal="true"
-           android:layout_marginTop="148dp"
-           android:text="Button" />
 
 </RelativeLayout>
